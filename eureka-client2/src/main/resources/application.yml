@@ -1,0 +1,39 @@
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:123@localhost:7001/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+    ip-address: true
+    metadata-map:
+      myname: xuyue
+spring:
+  application:
+    name: vue-test
+# 配置某个服务的负载策略
+#eureka-client1:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+# 自定义负载策略
+#    NFLoadBalancerRuleClassName: com.online.taxi.driver.ribbonconfig.MsbRandomRule
+#以下配置的是全部都是用轮训策略
+#ribbon:
+#  NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+server:
+  port: 8082
+#  /下面有4种日志类型
+#  none:不记录任何日志，默认值
+#  basic:仅记录请求方法，url，响应状态码，执行时间。
+#  headers：在basic基础上，记录header信息
+#  full：记录请求和响应的header，body，元数据。
+#feign:
+#  client:
+#    config:
+#      eureka-client1:
+#        logging-level: BASIC
+#  //上面的logger-level只对下面的 debug级别日志做出响应。
+logging:
+  level:
+#    org.springframework: DEBUG
+    com.yinyao.eurekaclient2.service.EurekaClient1Service: debug

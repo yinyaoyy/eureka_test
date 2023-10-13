@@ -1,0 +1,22 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://root:123@localhost:7001/eureka/
+#    healthcheck:
+##      开启健康检查
+#      enabled: true
+  instance:
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+    ip-address: true
+    metadata-map:
+      myname: yinyao
+
+server:
+  port: 8081  #服务端口号
+spring:
+  application:
+    name: eureka-client1
+  security:
+    user:
+      name: root
+      password: 123
