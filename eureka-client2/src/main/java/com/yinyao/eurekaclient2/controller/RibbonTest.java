@@ -64,9 +64,7 @@ public class RibbonTest {
 
     public static void main(String[] args) {
         List<Integer> integers = Arrays.asList(1, 2, 3);
-        integers.add(51);
-        integers.add(52);
-        integers.add(53);
+        integers.add(5);
         System.out.println(JSON.toJSONString(integers));
     }
 }
